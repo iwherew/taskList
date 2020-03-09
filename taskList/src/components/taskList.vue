@@ -1,7 +1,7 @@
 <template>
   <div class="task-list">
     <div class="day-list" v-for="(item, index) in dateList" :key="index">
-      <div :class="[item.time<nowDate? 'today header':'header']">
+      <div :class="[item.time < nowDate && item.time>= (nowDate-86400000)? 'today header':'header']">
         <div class="date">{{transformTime(item.time)}}</div>
         <div>星期{{"日一二三四五六".charAt(new Date(item.time).getDay())}}(
             <span class="red">{{item.taskList.length}}</span>
